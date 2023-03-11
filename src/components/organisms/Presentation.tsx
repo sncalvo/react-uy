@@ -9,7 +9,7 @@ const Presentation = () => (
       <div className="mockup-code rounded-lg bg-[#282c34] pt-5">
         <div className="p-8">
           <Highlight>
-            {`const Home= () => {
+            {`const Home = () => {
   return (
     <div>
       <h1>React UY</h1>

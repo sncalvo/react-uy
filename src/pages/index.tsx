@@ -3,7 +3,6 @@ import Head from "next/head";
 
 import AnimatedLink from "@/components/molecule/AnimatedLlink";
 import Presentation from "@/components/organisms/Presentation";
-import Footer from "@/components/organisms/Footer";
 
 const Home: NextPage = () => {
   return (
