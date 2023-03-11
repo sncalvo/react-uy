@@ -1,3 +1,21 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@import "highlight.js/styles/atom-one-dark.css";
+
+.mockup-code::before {
+  content: "";
+  margin-bottom: 1rem;
+  display: block;
+  height: 0.75rem;
+  width: 0.75rem;
+  border-radius: 9999px;
+  opacity: 0.5;
+  box-shadow: 1.4em 0, 2.8em 0, 4.2em 0;
+}
+
+body {
+  background-color: #1e1e1e;
+  color: #d4d4d4;
+}
