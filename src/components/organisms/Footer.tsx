@@ -37,6 +37,7 @@ const Footer = () => (
 
     <div className="text-white-300 text-center">
       <p className="text-sm">Designed &amp; Built by Santiago Calvo</p>
+      <p className="text-xs">Full Stack Senior Developer</p>
     </div>
   </footer>
 );
