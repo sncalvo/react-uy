@@ -6,8 +6,8 @@ import { motion } from "framer-motion";
 import NavLink from "../molecule/NavLink";
 
 import { AiOutlineMenu } from "react-icons/ai";
-import { SiReact } from "react-icons/si";
 import Link from "next/link";
+import Rive from "@rive-app/react-canvas";
 
 const MainLayout = (page: ReactElement) => {
   const [navMenuOpen, setNavMenuOpen] = useState(false);
@@ -43,9 +43,12 @@ const MainLayout = (page: ReactElement) => {
       <div className="flex items-center justify-between bg-gradient-to-br from-blue-600 to-blue-400 px-1 shadow-lg">
         <Link
           href="/"
-          className="ml-2 items-center justify-center rounded-full bg-slate-800 p-1"
+          className="ml-2 h-12 w-12 items-center justify-center rounded-full bg-slate-800"
         >
-          <SiReact className="h-10 w-10" color="#61DBFB" />
+          <Rive
+            src="/rive-animations/react.riv"
+            aria-label="Rive logo by Dante from Rive community - https://creativecommons.org/licenses/by/4.0/"
+          />
         </Link>
         <div>
           <button
