@@ -19,7 +19,11 @@ const Communities: NextPageWithLayout = () => {
   return (
     <div className="grid grid-cols-2 gap-4 p-3 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
       {communities?.map((community) => (
-        <CommunityCard key={community.id} community={community} />
+        <CommunityCard
+          key={community.id}
+          community={community}
+          onClick={() => window.open(community.link, community.name)}
+        />
       ))}
     </div>
   );

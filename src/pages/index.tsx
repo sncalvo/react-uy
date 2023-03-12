@@ -81,7 +81,13 @@ const Home: NextPage = () => {
                     <CommunityCard key={index} />
                   ))
                 : communities?.map((community) => (
-                    <CommunityCard key={community.id} community={community} />
+                    <CommunityCard
+                      key={community.id}
+                      community={community}
+                      onClick={() =>
+                        window.open(community.link, community.name)
+                      }
+                    />
                   ))}
             </div>
           </div>
