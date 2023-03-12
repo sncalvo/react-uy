@@ -16,13 +16,9 @@ const AnimatedLink = ({ href, label, delay }: Props) => (
       delay,
       ease: [0, 0.71, 0.2, 1.01],
     }}
+    className="rounded-lg bg-blue-500 p-4 text-lg text-white shadow-lg outline-2 outline-blue-600"
   >
-    <Link
-      href={href}
-      className="rounded-lg bg-blue-500 p-4 text-lg text-white outline-2 outline-blue-600"
-    >
-      {label}
-    </Link>
+    <Link href={href}>{label}</Link>
   </motion.li>
 );
 
