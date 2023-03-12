@@ -6,6 +6,7 @@ import Presentation from "@/components/organisms/Presentation";
 import { api } from "@/utils/api";
 import CommunityCard from "@/components/molecule/CommunityCard";
 import EventCard from "@/components/molecule/EventCard";
+import Footer from "@/components/organisms/Footer";
 
 const Home: NextPage = () => {
   const { data: communities, isLoading: isCommunitiesLoading } =
@@ -82,6 +83,8 @@ const Home: NextPage = () => {
           </div>
         </section>
       </main>
+
+      <Footer />
 
       <nav className="fixed bottom-0 right-0">
         <ul className="flex flex-col items-end gap-2 pb-3 pr-3 md:flex-row md:gap-4 md:pb-10 md:pr-10">
