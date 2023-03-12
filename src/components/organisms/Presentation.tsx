@@ -17,7 +17,7 @@ const Presentation = () => (
       </div>
 
       <div className="mockup-code -mx-6 rounded-lg bg-[#282c34] pt-5">
-        <div className="p-8">
+        <div className="py-5 px-4 md:py-8 md:px-8">
           <Highlight>
             {`const Home = () => {
   return (
@@ -31,8 +31,8 @@ const Presentation = () => (
         </div>
       </div>
     </div>
-    <div className="col-span-1 hidden items-center justify-center overflow-hidden md:flex">
-      <div className="h-[500px] w-[500px] rounded-full bg-gray-800 shadow duration-[10000ms] motion-safe:animate-spin-slow">
+    <div className="col-span-1 hidden h-full items-center justify-center overflow-hidden md:flex">
+      <div className="aspect-square w-full max-w-lg rounded-full bg-gray-800 shadow duration-[10000ms] motion-safe:animate-spin-slow">
         <Rive
           src="/rive-animations/react.riv"
           aria-label="Rive logo by Dante from Rive community - https://creativecommons.org/licenses/by/4.0/"

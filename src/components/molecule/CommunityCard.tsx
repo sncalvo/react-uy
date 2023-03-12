@@ -14,7 +14,7 @@ const CommunityCard = ({ community, onClick }: Props) => {
   }
 
   return (
-    <button className="relative flex h-48 max-w-xs flex-col items-center justify-center overflow-hidden rounded-lg p-4 shadow-lg transition-all hover:scale-105">
+    <button className="relative flex h-48 min-w-min max-w-xs flex-col items-center justify-center overflow-hidden rounded-lg p-4 shadow-lg transition-all hover:scale-105">
       <figure className="absolute h-full w-full" onClick={onClick}>
         <Image
           src={community.image}

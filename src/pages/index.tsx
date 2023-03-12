@@ -12,12 +12,18 @@ import Footer from "@/components/organisms/Footer";
 import { api } from "@/utils/api";
 import Script from "next/script";
 import { env } from "@/env.mjs";
+import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
+import { useState } from "react";
+import { motion } from "framer-motion";
+import clsx from "clsx";
 
 const Home: NextPage = () => {
   const { data: communities, isLoading: isCommunitiesLoading } =
     api.communities.getAll.useQuery();
   const { data: events, isLoading: isEventsLoading } =
     api.events.getAll.useQuery();
+
+  const [openNav, setOpenNav] = useState(false);
 
   return (
     <>
@@ -56,10 +62,10 @@ const Home: NextPage = () => {
         src={`https://www.googletagmanager.com/gtag/js?id=${env.NEXT_PUBLIC_GOOGLE_TAG_MANAGER_ID}`}
         strategy="worker"
       />
-      <main>
+      <main className="overflow-x-hidden">
         <Presentation />
 
-        <section className="flex min-h-screen flex-col justify-center divide-y bg-blue-400 p-4">
+        <section className="flex min-h-screen w-screen flex-col justify-center divide-y bg-blue-400 p-4">
           <div>
             <a
               className="group flex w-full flex-col items-start justify-start p-5"
@@ -122,8 +128,34 @@ const Home: NextPage = () => {
 
       <Footer />
 
-      <nav className="fixed bottom-0 right-0">
+      <nav className="fixed bottom-0 right-0 hidden md:flex">
         <ul className="flex flex-col items-end gap-2 pb-3 pr-3 md:flex-row md:gap-4 md:pb-10 md:pr-10">
+          <AnimatedLink href="/communities" label="Comunidades" delay={0.5} />
+          <AnimatedLink href="/jobs" label="Trabajos" delay={0.7} />
+          <AnimatedLink href="/events" label="Eventos" delay={0.9} />
+        </ul>
+      </nav>
+
+      <motion.button
+        className="fixed top-0 right-0 z-50 rounded-full bg-blue-400 p-3 text-white shadow-lg md:hidden"
+        onClick={() => setOpenNav((prev) => !prev)}
+        initial={{ rotate: 0 }}
+        animate={{ rotate: openNav ? 180 : 0 }}
+        transition={{ duration: 0.3 }}
+      >
+        {openNav ? <AiOutlineClose size={32} /> : <AiOutlineMenu size={32} />}
+      </motion.button>
+
+      <nav
+        className={clsx(
+          `fixed bottom-0 left-0 z-40 h-full w-full transform bg-blue-400 p-4 transition-all duration-300`,
+          {
+            "translate-x-0": openNav,
+            "-translate-x-full": !openNav,
+          }
+        )}
+      >
+        <ul className="flex h-3/4 flex-col items-center justify-center gap-2">
           <AnimatedLink href="/communities" label="Comunidades" delay={0.5} />
           <AnimatedLink href="/jobs" label="Trabajos" delay={0.7} />
           <AnimatedLink href="/events" label="Eventos" delay={0.9} />
