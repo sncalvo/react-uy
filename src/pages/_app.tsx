@@ -10,6 +10,8 @@ import type { NextPageWithLayout } from "@/types/layout";
 import type { NextPage } from "next";
 import type { ReactElement } from "react";
 
+import { Analytics } from "@vercel/analytics/react";
+
 const MyApp: AppType<{ session: Session | null }> = ({
   Component,
   pageProps: { session, ...pageProps },
@@ -18,17 +20,20 @@ const MyApp: AppType<{ session: Session | null }> = ({
   const getLayout = LayoutComponent.getLayout || ((page: NextPage) => page);
 
   return (
-    <SessionProvider session={session}>
-      {
-        getLayout(
-          (<LayoutComponent {...pageProps} />) as unknown as ReactElement<
-            object,
-            string
-          > &
-            NextPage<object, object>
-        ) as JSX.Element
-      }
-    </SessionProvider>
+    <>
+      <SessionProvider session={session}>
+        {
+          getLayout(
+            (<LayoutComponent {...pageProps} />) as unknown as ReactElement<
+              object,
+              string
+            > &
+              NextPage<object, object>
+          ) as JSX.Element
+        }
+      </SessionProvider>
+      <Analytics />
+    </>
   );
 };
 
