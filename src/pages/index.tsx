@@ -14,8 +14,6 @@ const Home: NextPage = () => {
   const { data: events, isLoading: isEventsLoading } =
     api.events.getAll.useQuery();
 
-  console.log(communities);
-
   return (
     <>
       <Head>
