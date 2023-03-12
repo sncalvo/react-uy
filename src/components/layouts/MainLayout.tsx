@@ -24,7 +24,7 @@ const MainLayout = (page: ReactElement) => {
       </Head>
 
       <motion.div
-        className="fixed h-screen w-screen bg-gradient-to-b from-blue-400 to-blue-700"
+        className="fixed z-20 h-screen w-screen bg-gradient-to-b from-blue-400 to-blue-700"
         role="button"
         onClick={() => setNavMenuOpen(false)}
         animate={navMenuOpen ? "open" : "closed"}
@@ -40,12 +40,12 @@ const MainLayout = (page: ReactElement) => {
         }}
       />
 
-      <div className="flex items-center justify-between bg-gradient-to-br from-blue-600 to-blue-400 p-1 shadow-lg">
+      <div className="flex items-center justify-between bg-gradient-to-br from-blue-600 to-blue-400 px-1 shadow-lg">
         <Link
           href="/"
-          className="items-center justify-center rounded-full bg-slate-800 p-1"
+          className="ml-2 items-center justify-center rounded-full bg-slate-800 p-1"
         >
-          <SiReact className="h-8 w-8" color="#61DBFB" />
+          <SiReact className="h-10 w-10" color="#61DBFB" />
         </Link>
         <div>
           <button
@@ -71,7 +71,7 @@ const MainLayout = (page: ReactElement) => {
 
           <motion.nav
             animate={navMenuOpen ? "open" : "closed"}
-            className="fixed top-0 right-0 h-screen bg-blue-900 p-2 shadow-lg md:hidden"
+            className="fixed top-0 right-0 z-30 h-screen bg-blue-900 py-2 px-4 shadow-lg md:hidden"
             variants={{
               open: {
                 opacity: 1,

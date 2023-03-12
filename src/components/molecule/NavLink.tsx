@@ -9,26 +9,26 @@ type Props = {
 };
 
 const NavLink = ({ href, children, isOpen, delay }: Props) => (
-  <Link href={href} className="group">
-    <motion.li
-      animate={isOpen ? "open" : "closed"}
-      variants={{
-        open: {
-          opacity: 1,
-          transition: {
-            delay,
-          },
+  <motion.li
+    animate={isOpen ? "open" : "closed"}
+    variants={{
+      open: {
+        opacity: 1,
+        transition: {
+          delay,
         },
-        closed: {
-          opacity: delay === 0 ? 1 : 0,
-        },
-      }}
-      className="rounded-lg p-4 text-lg text-white shadow-lg outline-2"
-    >
+      },
+      closed: {
+        opacity: delay === 0 ? 1 : 0,
+      },
+    }}
+    className="rounded-lg text-lg text-white md:py-4"
+  >
+    <Link href={href} className="group">
       {children}
-      <span className="block h-0.5 max-w-0 bg-white transition-all duration-300 group-hover:max-w-full"></span>
-    </motion.li>
-  </Link>
+      <span className="block h-0.5 max-w-0 bg-white transition-all duration-300 group-hover:max-w-full" />
+    </Link>
+  </motion.li>
 );
 
 export default NavLink;
