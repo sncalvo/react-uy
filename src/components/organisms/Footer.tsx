@@ -1,12 +1,12 @@
 import { SiGithub, SiLinkedin, SiTwitter } from "react-icons/si";
 
 const Footer = () => (
-  <footer className="flex flex-col gap-4 bg-blue-400 p-4 pt-20 pb-8">
+  <footer className="flex flex-col gap-4 bg-gradient-to-t from-blue-500 to-blue-400 p-4 pt-20 pb-8">
     <ul className="flex flex-row items-center justify-center gap-4">
       <li className="transition-all delay-100 duration-300 hover:-translate-y-2 hover:scale-110">
         <a
           href="https://github.com/sncalvo/"
-          className="text-gray-500 transition-all delay-100 duration-300 hover:text-gray-100"
+          className="text-gray-200 transition-all delay-100 duration-300 hover:text-gray-100"
           target="Github"
         >
           <SiGithub className="h-8 w-8" />
@@ -16,7 +16,7 @@ const Footer = () => (
       <li className="transition-all delay-100 duration-300 hover:-translate-y-2 hover:scale-110">
         <a
           href="https://www.linkedin.com/in/santiago-calvo-vello/"
-          className="text-gray-500 transition-all delay-100 duration-300 hover:text-gray-100"
+          className="text-gray-200 transition-all delay-100 duration-300 hover:text-gray-100"
           target="LinkedIn"
         >
           <SiLinkedin className="h-8 w-8" />
@@ -26,7 +26,7 @@ const Footer = () => (
       <li className="transition-all delay-100 duration-300 hover:-translate-y-2 hover:scale-110">
         <a
           href="https://twitter.com/santi_c_dev"
-          className="text-gray-500 transition-all delay-100 duration-300 hover:text-gray-100"
+          className="text-gray-200 transition-all delay-100 duration-300 hover:text-gray-100"
           target="Twitter"
         >
           <SiTwitter className="h-8 w-8" />

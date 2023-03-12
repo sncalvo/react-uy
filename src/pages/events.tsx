@@ -1,27 +1,30 @@
+import MainLayout from "@/components/layouts/MainLayout";
+import EventCard from "@/components/molecule/EventCard";
+import type { NextPageWithLayout } from "@/types/layout";
 import { api } from "@/utils/api";
-import type { NextPage } from "next";
 
-const Events: NextPage = () => {
+const Events: NextPageWithLayout = () => {
   const { data: events, isLoading } = api.events.getAll.useQuery();
 
   if (isLoading) {
-    return <div>Loading...</div>;
-  }
-
-  if (!events) {
-    return <div>No events found</div>;
+    return (
+      <div className="grid grid-cols-2 gap-4 p-3 md:grid-cols-3 lg:grid-cols-4">
+        {Array(8).map((_, index) => (
+          <EventCard key={index} />
+        ))}
+      </div>
+    );
   }
 
   return (
-    <div>
-      {events.map((event) => (
-        <div key={event.id}>
-          <h1>{event.name}</h1>
-          <p>{event.description}</p>
-        </div>
+    <div className="grid grid-cols-2 gap-4 p-3 md:grid-cols-3 lg:grid-cols-4">
+      {events?.map((event) => (
+        <EventCard key={event.id} event={event} />
       ))}
     </div>
   );
 };
+
+Events.getLayout = MainLayout;
 
 export default Events;

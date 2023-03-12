@@ -9,7 +9,7 @@ type Props = {
 };
 
 const NavLink = ({ href, children, isOpen, delay }: Props) => (
-  <Link href={href}>
+  <Link href={href} className="group">
     <motion.li
       animate={isOpen ? "open" : "closed"}
       variants={{
@@ -23,9 +23,10 @@ const NavLink = ({ href, children, isOpen, delay }: Props) => (
           opacity: delay === 0 ? 1 : 0,
         },
       }}
-      className="rounded-lg bg-blue-500 p-4 text-lg text-white shadow-lg outline-2"
+      className="rounded-lg p-4 text-lg text-white shadow-lg outline-2"
     >
       {children}
+      <span className="block h-0.5 max-w-0 bg-white transition-all duration-300 group-hover:max-w-full"></span>
     </motion.li>
   </Link>
 );

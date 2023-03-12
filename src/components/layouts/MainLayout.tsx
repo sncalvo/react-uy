@@ -5,7 +5,7 @@ import Footer from "@/components/organisms/Footer";
 import { motion } from "framer-motion";
 import NavLink from "../molecule/NavLink";
 
-import { ImMenu, ImCross } from "react-icons/im";
+import { AiOutlineMenu } from "react-icons/ai";
 import { SiReact } from "react-icons/si";
 import Link from "next/link";
 
@@ -23,41 +23,67 @@ const MainLayout = (page: ReactElement) => {
         <link rel="icon" href="favicon.ico" />
       </Head>
 
-      <div className="flex items-center justify-between bg-blue-300 p-1">
+      <motion.div
+        className="fixed h-screen w-screen bg-gradient-to-b from-blue-400 to-blue-700"
+        role="button"
+        onClick={() => setNavMenuOpen(false)}
+        animate={navMenuOpen ? "open" : "closed"}
+        variants={{
+          open: {
+            opacity: 0.5,
+            pointerEvents: "all",
+          },
+          closed: {
+            opacity: 0,
+            pointerEvents: "none",
+          },
+        }}
+      />
+
+      <div className="flex items-center justify-between bg-gradient-to-br from-blue-600 to-blue-400 p-1 shadow-lg">
         <Link
           href="/"
           className="items-center justify-center rounded-full bg-slate-800 p-1"
         >
           <SiReact className="h-8 w-8" color="#61DBFB" />
         </Link>
-        <div className="relative">
+        <div>
           <button
-            className="p-3 text-blue-500"
+            className="p-3 text-white transition-all hover:scale-105 md:hidden"
             onClick={() => setNavMenuOpen((prevValue) => !prevValue)}
           >
-            {navMenuOpen ? (
-              <ImCross className="h-8 w-8" />
-            ) : (
-              <ImMenu className="h-8 w-8" />
-            )}
+            <AiOutlineMenu className="h-8 w-8" />
           </button>
+
+          <ul className="hidden gap-3 p-2 md:flex">
+            <NavLink href="/communities" isOpen={true} delay={0}>
+              Comunidades
+            </NavLink>
+
+            <NavLink href="/jobs" isOpen={true} delay={0.3}>
+              Trabajos
+            </NavLink>
+
+            <NavLink href="/events" isOpen={true} delay={0.6}>
+              Eventos
+            </NavLink>
+          </ul>
 
           <motion.nav
             animate={navMenuOpen ? "open" : "closed"}
+            className="fixed top-0 right-0 h-screen bg-blue-900 p-2 shadow-lg md:hidden"
             variants={{
               open: {
                 opacity: 1,
                 x: 0,
-                height: "auto",
               },
               closed: {
                 opacity: 0,
-                x: 100,
-                height: 0,
+                x: "100%",
               },
             }}
           >
-            <ul className="absolute right-0 flex flex-col gap-3 rounded-lg bg-blue-900 p-2 shadow-lg">
+            <ul className="flex flex-col gap-3">
               <NavLink href="/communities" isOpen={navMenuOpen} delay={0}>
                 Comunidades
               </NavLink>
@@ -76,9 +102,7 @@ const MainLayout = (page: ReactElement) => {
 
       <main className="grow">{page}</main>
 
-      <div>
-        <Footer />
-      </div>
+      <Footer />
     </div>
   );
 };
