@@ -2,7 +2,7 @@ import Highlight from "react-highlight";
 import { SiReact } from "react-icons/si";
 
 const Presentation = () => (
-  <>
+  <div className="relative grid min-h-screen grid-cols-1 flex-col items-center justify-center bg-gradient-to-b from-blue-400 to-blue-700 md:grid-cols-2 md:p-12">
     <div className="col-span-1 -mt-44 p-10 md:mt-0 md:p-14">
       <div className="flex items-center justify-between py-2">
         <h1 className="mb-5 text-5xl font-bold text-white">React UY</h1>
@@ -29,13 +29,13 @@ const Presentation = () => (
         </div>
       </div>
     </div>
-    <div className="col-span-1 hidden h-full overflow-hidden bg-gray-800 p-12 backdrop-blur-lg md:block">
+    <div className="col-span-1 hidden items-center justify-center overflow-hidden md:flex">
       <SiReact
-        className="h-full w-full duration-[10000ms] motion-safe:animate-spin-slow"
+        className="h-96 w-96 rounded-full bg-gray-800 p-5 shadow duration-[10000ms] motion-safe:animate-spin-slow"
         color="#61DBFB"
       />
     </div>
-  </>
+  </div>
 );
 
 export default Presentation;
