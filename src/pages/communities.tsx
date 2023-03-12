@@ -1,7 +1,8 @@
+import MainLayout from "@/components/layouts/MainLayout";
+import type { NextPageWithLayout } from "@/types/layout";
 import { api } from "@/utils/api";
-import type { NextPage } from "next";
 
-const Communities: NextPage = () => {
+const Communities: NextPageWithLayout = () => {
   const { data: communities, isLoading } = api.communities.getAll.useQuery();
 
   if (isLoading) {
@@ -23,5 +24,7 @@ const Communities: NextPage = () => {
     </div>
   );
 };
+
+Communities.getLayout = MainLayout;
 
 export default Communities;

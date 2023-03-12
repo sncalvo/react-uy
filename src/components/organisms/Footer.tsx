@@ -1,17 +1,15 @@
-// Footer presents who made the site and links to their social media
-
 import { SiGithub, SiLinkedin, SiTwitter } from "react-icons/si";
 
 const Footer = () => (
-  <footer className="flex flex-col gap-4 bg-blue-700 p-4 pt-20 pb-8">
+  <footer className="flex flex-col gap-4 bg-blue-400 p-4 pt-20 pb-8">
     <ul className="flex flex-row items-center justify-center gap-4">
       <li className="transition-all delay-100 duration-300 hover:-translate-y-2 hover:scale-110">
         <a
           href="https://github.com/sncalvo/"
-          className="h-16 text-gray-500 transition-all delay-100 duration-300 hover:text-gray-100"
+          className="text-gray-500 transition-all delay-100 duration-300 hover:text-gray-100"
           target="Github"
         >
-          <SiGithub width={124} height={124} />
+          <SiGithub className="h-8 w-8" />
           <span className="sr-only">Github</span>
         </a>
       </li>
@@ -21,7 +19,7 @@ const Footer = () => (
           className="text-gray-500 transition-all delay-100 duration-300 hover:text-gray-100"
           target="LinkedIn"
         >
-          <SiLinkedin width={124} height={124} />
+          <SiLinkedin className="h-8 w-8" />
           <span className="sr-only">LinkedIn</span>
         </a>
       </li>
@@ -31,7 +29,7 @@ const Footer = () => (
           className="text-gray-500 transition-all delay-100 duration-300 hover:text-gray-100"
           target="Twitter"
         >
-          <SiTwitter width={124} height={124} />
+          <SiTwitter className="h-8 w-8" />
           <span className="sr-only">Twitter</span>
         </a>
       </li>
