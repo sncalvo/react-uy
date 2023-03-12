@@ -37,7 +37,7 @@ const Home: NextPage = () => {
           window.gtag = function gtag(){dataLayer.push(arguments);};
           gtag('js', new Date());
 
-          gtag('config', ${env.NEXT_PUBLIC_GOOGLE_TAG_MANAGER_ID});`,
+          gtag('config', '${env.NEXT_PUBLIC_GOOGLE_TAG_MANAGER_ID}');`,
           }}
         />
         <script
