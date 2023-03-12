@@ -1,12 +1,17 @@
-import { type NextPage } from "next";
+import type { NextPage } from "next";
 import Head from "next/head";
+
+import { Partytown } from "@builder.io/partytown/react";
 
 import AnimatedLink from "@/components/molecule/AnimatedLlink";
 import Presentation from "@/components/organisms/Presentation";
-import { api } from "@/utils/api";
 import CommunityCard from "@/components/molecule/CommunityCard";
 import EventCard from "@/components/molecule/EventCard";
 import Footer from "@/components/organisms/Footer";
+
+import { api } from "@/utils/api";
+import Script from "next/script";
+import { env } from "@/env.mjs";
 
 const Home: NextPage = () => {
   const { data: communities, isLoading: isCommunitiesLoading } =
@@ -23,7 +28,34 @@ const Home: NextPage = () => {
           content="Bienvenido a la comunidad de react UY"
         />
         <link rel="icon" href="/favicon.ico" />
+        <Partytown forward={["dataLayer.push"]} />
+
+        <script
+          type="text/partytown"
+          dangerouslySetInnerHTML={{
+            __html: `window.dataLayer = window.dataLayer || [];
+          window.gtag = function gtag(){dataLayer.push(arguments);};
+          gtag('js', new Date());
+
+          gtag('config', ${env.NEXT_PUBLIC_GOOGLE_TAG_MANAGER_ID});`,
+          }}
+        />
+        <script
+          data-partytown-config
+          dangerouslySetInnerHTML={{
+            __html: `
+            partytown = {
+              lib: "/_next/static/~partytown/",
+              forward: ["gtag"]
+            };
+          `,
+          }}
+        />
       </Head>
+      <Script
+        src={`https://www.googletagmanager.com/gtag/js?id=${env.NEXT_PUBLIC_GOOGLE_TAG_MANAGER_ID}`}
+        strategy="worker"
+      />
       <main>
         <Presentation />
 
