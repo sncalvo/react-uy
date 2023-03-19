@@ -1,5 +1,5 @@
-import { motion } from "framer-motion";
-import Link from "next/link";
+import { motion } from 'framer-motion';
+import Link from 'next/link';
 
 type Props = {
   href: string;
@@ -10,7 +10,7 @@ type Props = {
 
 const NavLink = ({ href, children, isOpen, delay }: Props) => (
   <motion.li
-    animate={isOpen ? "open" : "closed"}
+    animate={isOpen ? 'open' : 'closed'}
     variants={{
       open: {
         opacity: 1,

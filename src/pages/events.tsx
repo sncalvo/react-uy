@@ -1,7 +1,7 @@
-import MainLayout from "@/components/layouts/MainLayout";
-import EventCard from "@/components/molecule/EventCard";
-import type { NextPageWithLayout } from "@/types/layout";
-import { api } from "@/utils/api";
+import MainLayout from '@/components/layouts/MainLayout';
+import EventCard from '@/components/molecules/EventCard';
+import type { NextPageWithLayout } from '@/types/layout';
+import { api } from '@/utils/api';
 
 const Events: NextPageWithLayout = () => {
   const { data: events, isLoading } = api.events.getAll.useQuery();

@@ -1,6 +1,6 @@
-import { createTRPCRouter } from "@/server/api/trpc";
-import { communitiesRouter } from "./routers/communities";
-import { eventsRouter } from "./routers/events";
+import { createTRPCRouter } from '@/server/api/trpc';
+import { communitiesRouter } from './routers/communities';
+import { eventsRouter } from './routers/events';
 
 export const appRouter = createTRPCRouter({
   communities: communitiesRouter,

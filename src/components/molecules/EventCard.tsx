@@ -1,5 +1,5 @@
-import type { Event } from "@prisma/client";
-import Image from "next/image";
+import type { Event } from '@prisma/client';
+import Image from 'next/image';
 
 type Props = {
   event?: Event;
@@ -27,9 +27,7 @@ const EventCard = ({ event, onClick }: Props) => {
       </figure>
       <div className="z-10 flex h-full flex-col text-start">
         <h2 className="text-2xl font-bold text-white">{event.name}</h2>
-        <p className="overflow-hidden text-ellipsis text-gray-200">
-          {event.description}
-        </p>
+        <p className="overflow-hidden text-ellipsis text-gray-200">{event.description}</p>
       </div>
     </button>
   );

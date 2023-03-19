@@ -1,8 +1,8 @@
-import { motion } from "framer-motion";
-import Link from "next/link";
+import { motion } from 'framer-motion';
+import Link from 'next/link';
 
-import clsx from "clsx";
-import { useState } from "react";
+import clsx from 'clsx';
+import { useState } from 'react';
 
 type Props = {
   href: string;
@@ -18,12 +18,12 @@ const AnimatedLink = ({ href, label, delay }: Props) => {
       initial={{ opacity: 0, scale: 0.5 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{
-        type: "spring",
+        type: 'spring',
         delay: hover ? 0 : delay,
       }}
       className={clsx(
-        "rounded-lg px-4 text-lg text-white outline-2 md:bg-blue-500 md:py-2 md:shadow-lg",
-        "outline-blue-600"
+        'rounded-lg px-4 text-lg text-white outline-2 md:bg-blue-500 md:py-2 md:shadow-lg',
+        'outline-blue-600',
       )}
       whileHover={{ scale: 1.2, transition: { delay: 0.2 } }}
       onHoverStart={() => setHover(true)}

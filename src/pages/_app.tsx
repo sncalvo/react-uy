@@ -1,16 +1,16 @@
-import type { AppType } from "next/app";
-import type { Session } from "next-auth";
-import { SessionProvider } from "next-auth/react";
+import type { AppType } from 'next/app';
+import type { Session } from 'next-auth';
+import { SessionProvider } from 'next-auth/react';
 
-import { api } from "@/utils/api";
+import { api } from '@/utils/api';
 
-import "@/styles/globals.css";
+import '@/styles/globals.css';
 
-import type { NextPageWithLayout } from "@/types/layout";
-import type { NextPage } from "next";
-import type { ReactElement } from "react";
+import type { NextPageWithLayout } from '@/types/layout';
+import type { NextPage } from 'next';
+import type { ReactElement } from 'react';
 
-import { Analytics } from "@vercel/analytics/react";
+import { Analytics } from '@vercel/analytics/react';
 
 const MyApp: AppType<{ session: Session | null }> = ({
   Component,
@@ -24,11 +24,8 @@ const MyApp: AppType<{ session: Session | null }> = ({
       <SessionProvider session={session}>
         {
           getLayout(
-            (<LayoutComponent {...pageProps} />) as unknown as ReactElement<
-              object,
-              string
-            > &
-              NextPage<object, object>
+            (<LayoutComponent {...pageProps} />) as unknown as ReactElement<object, string> &
+              NextPage<object, object>,
           ) as JSX.Element
         }
       </SessionProvider>

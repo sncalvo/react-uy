@@ -1,13 +1,13 @@
-import Head from "next/head";
-import { type ReactElement, useState } from "react";
+import Head from 'next/head';
+import { type ReactElement, useState } from 'react';
 
-import Footer from "@/components/organisms/Footer";
-import { motion } from "framer-motion";
-import NavLink from "../molecule/NavLink";
+import Footer from '@/components/organisms/Footer';
+import { motion } from 'framer-motion';
+import NavLink from '../molecules/NavLink';
 
-import { AiOutlineMenu } from "react-icons/ai";
-import Link from "next/link";
-import Rive from "@rive-app/react-canvas";
+import { AiOutlineMenu } from 'react-icons/ai';
+import Link from 'next/link';
+import Rive from '@rive-app/react-canvas';
 
 const MainLayout = (page: ReactElement) => {
   const [navMenuOpen, setNavMenuOpen] = useState(false);
@@ -16,10 +16,7 @@ const MainLayout = (page: ReactElement) => {
     <div className="flex h-screen w-screen flex-col overflow-hidden bg-gray-100">
       <Head>
         <title>React UY</title>
-        <meta
-          name="description"
-          content="Bienvenido a la comunidad de react UY"
-        />
+        <meta name="description" content="Bienvenido a la comunidad de react UY" />
         <link rel="icon" href="favicon.ico" />
       </Head>
 
@@ -27,15 +24,15 @@ const MainLayout = (page: ReactElement) => {
         className="fixed z-20 h-screen w-screen bg-gradient-to-b from-blue-400 to-blue-700"
         role="button"
         onClick={() => setNavMenuOpen(false)}
-        animate={navMenuOpen ? "open" : "closed"}
+        animate={navMenuOpen ? 'open' : 'closed'}
         variants={{
           open: {
             opacity: 0.5,
-            pointerEvents: "all",
+            pointerEvents: 'all',
           },
           closed: {
             opacity: 0,
-            pointerEvents: "none",
+            pointerEvents: 'none',
           },
         }}
       />
@@ -73,7 +70,7 @@ const MainLayout = (page: ReactElement) => {
           </ul>
 
           <motion.nav
-            animate={navMenuOpen ? "open" : "closed"}
+            animate={navMenuOpen ? 'open' : 'closed'}
             className="fixed top-0 right-0 z-30 h-screen bg-blue-900 py-2 px-4 shadow-lg md:hidden"
             variants={{
               open: {
@@ -82,7 +79,7 @@ const MainLayout = (page: ReactElement) => {
               },
               closed: {
                 opacity: 0,
-                x: "100%",
+                x: '100%',
               },
             }}
           >

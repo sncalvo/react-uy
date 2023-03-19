@@ -1,5 +1,5 @@
-import type { Community } from "@prisma/client";
-import Image from "next/image";
+import type { Community } from '@prisma/client';
+import Image from 'next/image';
 
 type Props = {
   community?: Community;
@@ -27,9 +27,7 @@ const CommunityCard = ({ community, onClick }: Props) => {
       </figure>
       <div className="z-10 flex h-full flex-col items-start justify-start text-start">
         <h2 className="text-2xl font-bold text-white">{community.name}</h2>
-        <p className="overflow-hidden text-ellipsis text-gray-200">
-          {community.description}
-        </p>
+        <p className="overflow-hidden text-ellipsis text-gray-200">{community.description}</p>
       </div>
     </button>
   );
