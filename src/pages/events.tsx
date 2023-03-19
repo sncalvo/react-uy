@@ -17,7 +17,7 @@ const Events: NextPageWithLayout = () => {
   }
 
   return (
-    <div className="grid grid-cols-2 gap-4 p-3 md:grid-cols-3 lg:grid-cols-4">
+    <div className="grid grid-cols-2 gap-4 p-3 pt-24 md:grid-cols-3 lg:grid-cols-4">
       {events?.map((event) => (
         <EventCard key={event.id} event={event} />
       ))}

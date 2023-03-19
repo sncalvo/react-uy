@@ -6,28 +6,20 @@ import { api } from '@/utils/api';
 
 import '@/styles/globals.css';
 
-import type { NextPageWithLayout } from '@/types/layout';
-import type { NextPage } from 'next';
-import type { ReactElement } from 'react';
-
 import { Analytics } from '@vercel/analytics/react';
+
+import ApplicationLayout from '@/components/layouts/ApplicationLayout';
 
 const MyApp: AppType<{ session: Session | null }> = ({
   Component,
   pageProps: { session, ...pageProps },
 }) => {
-  const LayoutComponent = Component as NextPageWithLayout;
-  const getLayout = LayoutComponent.getLayout || ((page: NextPage) => page);
-
   return (
     <>
       <SessionProvider session={session}>
-        {
-          getLayout(
-            (<LayoutComponent {...pageProps} />) as unknown as ReactElement<object, string> &
-              NextPage<object, object>,
-          ) as JSX.Element
-        }
+        <ApplicationLayout>
+          <Component {...pageProps} />
+        </ApplicationLayout>
       </SessionProvider>
       <Analytics />
     </>

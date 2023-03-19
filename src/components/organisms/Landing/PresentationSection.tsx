@@ -1,6 +1,8 @@
 import Button from '@/components/atoms/Button';
 import Rive from '@rive-app/react-canvas';
 
+import { signIn } from 'next-auth/react';
+
 const PresentationSection = () => {
   return (
     <div className="flex min-h-screen w-full flex-row items-center justify-center px-8 xl:px-56">
@@ -24,8 +26,12 @@ const PresentationSection = () => {
         </p>
 
         <div className="flex flex-row gap-4 pt-3">
-          <Button variant="primary">Empecemos!</Button>
-          <Button variant="secondary">Registrarse</Button>
+          <Button variant="primary" onClick={() => void signIn()}>
+            Empecemos!
+          </Button>
+          <Button variant="secondary" onClick={() => void signIn()}>
+            Registrarse
+          </Button>
         </div>
       </div>
 

@@ -2,11 +2,11 @@ import type { ReactElement } from 'react';
 import Footer from '../organisms/Footer';
 import Header from '../organisms/Header';
 
-const ApplicationLayout = (page: ReactElement) => (
+const ApplicationLayout = ({ children }: { children: ReactElement }) => (
   <>
     <Header />
 
-    <main className="overflow-x-hidden">{page}</main>
+    <main className="min-h-screen overflow-x-hidden">{children}</main>
 
     <Footer />
   </>

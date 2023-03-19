@@ -4,14 +4,18 @@ import Button from '../atoms/Button';
 
 import { HiOutlineSun } from 'react-icons/hi';
 
-import { signIn } from 'next-auth/react';
+import { signIn, useSession } from 'next-auth/react';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 
+const isBrowserDefaultDark = () => window.matchMedia('(prefers-color-scheme: dark)').matches;
+
 const Header = () => {
   const [dark, setDark] = useState(false);
   const [navMenuOpen, setNavMenuOpen] = useState(false);
+
+  const session = useSession();
 
   const setStyle = (dark: boolean) => {
     const html = document.querySelector('html');
@@ -33,14 +37,17 @@ const Header = () => {
   useEffect(() => {
     const darkModeSet = localStorage.getItem('darkModeSet');
 
-    console.log(darkModeSet);
-
     if (darkModeSet === 'true') {
       setDark(true);
       return;
     }
 
-    setDark(false);
+    if (darkModeSet === 'false') {
+      setDark(false);
+      return;
+    }
+
+    setDark(isBrowserDefaultDark());
   }, []);
 
   return (
@@ -58,13 +65,20 @@ const Header = () => {
         </Link>
 
         <div className="flex flex-grow flex-row items-center justify-end lg:justify-center">
-          <Navigation isOpen={navMenuOpen} onOpen={() => setNavMenuOpen(true)} setDark={setDark} />
+          <Navigation
+            isOpen={navMenuOpen}
+            onOpen={() => setNavMenuOpen(true)}
+            setDark={setDark}
+            onClose={() => setNavMenuOpen(false)}
+          />
         </div>
 
         <div className="hidden flex-row items-center gap-3 self-end lg:flex">
-          <Button variant="primary" onClick={() => void signIn()}>
-            Ingresar
-          </Button>
+          {!session?.data?.user && (
+            <Button variant="primary" onClick={() => void signIn()}>
+              Ingresar
+            </Button>
+          )}
 
           <Button variant="none" onClick={() => setDark((prevValue) => !prevValue)}>
             <HiOutlineSun className="h-6 w-6" />
