@@ -15,7 +15,7 @@ type FeatureProps = {
 
 const Feature = ({ title, description, icon, mobile = false }: FeatureProps) => (
   <div
-    className={clsx('group h-full w-2/3 flex-col items-center lg:flex', {
+    className={clsx('group h-full flex-col items-center md:w-2/3 lg:flex', {
       flex: mobile,
       hidden: !mobile,
     })}
@@ -49,7 +49,7 @@ const FirstSection = () => (
       interfaz de usuario.
     </p>
 
-    <div className="mt-10 grid grid-cols-2 grid-rows-2 place-items-center gap-y-14 gap-x-10 pt-10 lg:grid-cols-3">
+    <div className="mt-10 grid grid-cols-2 grid-rows-2 place-items-center gap-y-14 gap-x-5 pt-10 lg:grid-cols-3 lg:gap-x-10">
       <Feature
         title="Componentes"
         description="Estos componentes son como bloques de construcción que se pueden usar en diferentes partes de la aplicación"

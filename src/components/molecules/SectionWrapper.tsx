@@ -56,7 +56,7 @@ const SectionWrapper = ({
     >
       <div
         className={clsx(
-          'container mx-auto flex h-full flex-col items-center justify-center transition-all duration-1000',
+          'container mx-auto flex min-h-screen flex-col items-center justify-center py-5 transition-all duration-1000',
           {
             'translate-x-full': right,
             '-translate-x-full': left,

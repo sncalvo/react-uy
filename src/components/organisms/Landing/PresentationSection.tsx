@@ -5,18 +5,18 @@ const PresentationSection = () => {
   return (
     <div className="flex min-h-screen w-full flex-row items-center justify-center px-8 xl:px-56">
       <div className="flex flex-col gap-5 md:w-1/2 lg:pr-24">
-        <div className="flex items-center gap-4 self-start rounded-full bg-gray-200 p-3 px-5 text-center dark:bg-gray-700">
+        <div className="flex items-center gap-4 self-start rounded-full bg-gray-200 p-3 text-center dark:bg-gray-700 md:px-5">
           <span className="h-2 w-2 animate-pulse rounded-full bg-blue-500"></span>
-          <p className="text-lg text-gray-900 dark:text-gray-200">
+          <p className="text-sm text-gray-900 dark:text-gray-200 md:text-lg">
             La comunidad del framework más famoso
           </p>
         </div>
 
-        <h2 className="text-6xl font-bold text-gray-900 dark:text-white">
+        <h2 className="text-4xl font-bold text-gray-900 dark:text-white md:text-6xl">
           ¡Bienvenidos a la comunidad ReactJS Uruguay!
         </h2>
 
-        <p className="text-lg text-gray-600 dark:text-gray-400">
+        <p className="text-base text-gray-600 dark:text-gray-400 md:text-lg">
           Nuestra comunidad está formada por desarrolladores apasionados de ReactJS y su ecosistema.
           Creemos en el poder de esta tecnología y en su capacidad para transformar la forma en que
           se construyen aplicaciones web modernas. Como tal, nos hemos comprometido a ayudar a que
