@@ -45,10 +45,13 @@ const SectionWrapper = ({
 
   return (
     <section
-      className={clsx('h-screen text-center opacity-0 transition-all delay-100 duration-[2000ms]', {
-        'bg-sky-100 dark:bg-gray-900': background === 'default',
-        'bg-sky-200 dark:bg-sky-900': background === 'alt',
-      })}
+      className={clsx(
+        'min-h-screen text-center opacity-0 transition-all delay-100 duration-[2000ms]',
+        {
+          'bg-sky-100 dark:bg-gray-900': background === 'default',
+          'bg-sky-200 dark:bg-sky-900': background === 'alt',
+        },
+      )}
       ref={handleRect}
     >
       <div

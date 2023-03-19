@@ -3,7 +3,7 @@ import Rive from '@rive-app/react-canvas';
 
 const PresentationSection = () => {
   return (
-    <div className="flex h-screen w-full flex-row items-center justify-center px-8 xl:px-56">
+    <div className="flex min-h-screen w-full flex-row items-center justify-center px-8 xl:px-56">
       <div className="flex flex-col gap-5 md:w-1/2 lg:pr-24">
         <div className="flex items-center gap-4 self-start rounded-full bg-gray-200 p-3 px-5 text-center dark:bg-gray-700">
           <span className="h-2 w-2 animate-pulse rounded-full bg-blue-500"></span>
