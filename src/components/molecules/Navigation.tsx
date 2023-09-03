@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { signIn, useSession } from 'next-auth/react';
 import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai';
 import { HiOutlineSun } from 'react-icons/hi';
@@ -21,6 +21,7 @@ const Navigation = ({ isOpen, onOpen, onClose, setDark }: Props) => {
           className="p-3 text-gray-700 transition-all hover:scale-105 dark:text-white lg:hidden"
           onClick={onOpen}
         >
+          <span className="sr-only">Menu</span>
           <AiOutlineMenu className="h-8 w-8" />
         </button>
 
@@ -54,7 +55,7 @@ const Navigation = ({ isOpen, onOpen, onClose, setDark }: Props) => {
         </ul>
       </nav>
 
-      <motion.nav
+      <m.nav
         animate={isOpen ? 'open' : 'closed'}
         className="fixed top-0 right-0 left-0 z-30 flex h-screen flex-col justify-between bg-gray-200 py-2 px-4 shadow-lg dark:bg-blue-900 lg:hidden"
         variants={{
@@ -76,6 +77,7 @@ const Navigation = ({ isOpen, onOpen, onClose, setDark }: Props) => {
           )}
 
           <Button variant="none" onClick={() => setDark((prevValue) => !prevValue)}>
+            <span className="sr-only">Light\Dark Mode</span>
             <HiOutlineSun className="h-6 w-6" />
           </Button>
 
@@ -83,21 +85,32 @@ const Navigation = ({ isOpen, onOpen, onClose, setDark }: Props) => {
             className="p-3 text-gray-700 transition-all hover:scale-105 dark:text-white lg:hidden"
             onClick={onClose}
           >
+            <span className="sr-only">Close Menu</span>
             <AiOutlineClose className="h-8 w-8" />
           </button>
         </div>
         <ul className="flex flex-grow flex-col items-center justify-center gap-4">
-          <NavLink href="/#">Inicio</NavLink>
+          <li>
+            <NavLink href="/#">Inicio</NavLink>
+          </li>
 
-          <NavLink href="/communities">Comunidades</NavLink>
+          <li>
+            <NavLink href="/communities">Comunidades</NavLink>
+          </li>
 
-          <NavLink href="/jobs">Trabajos</NavLink>
+          <li>
+            <NavLink href="/jobs">Trabajos</NavLink>
+          </li>
 
-          <NavLink href="/events">Eventos</NavLink>
+          <li>
+            <NavLink href="/events">Eventos</NavLink>
+          </li>
 
-          <NavLink href="/contacts">Contacto</NavLink>
+          <li>
+            <NavLink href="/contacts">Contacto</NavLink>
+          </li>
         </ul>
-      </motion.nav>
+      </m.nav>
     </>
   );
 };

@@ -1,5 +1,4 @@
 import Navigation from '@/components/molecules/Navigation';
-import Rive from '@rive-app/react-canvas';
 import Button from '../atoms/Button';
 
 import { HiOutlineSun } from 'react-icons/hi';
@@ -7,7 +6,7 @@ import { HiOutlineSun } from 'react-icons/hi';
 import { signIn, useSession } from 'next-auth/react';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
-import { motion } from 'framer-motion';
+import LazyReactLogo from '../molecules/LazyReactLogo';
 
 const isBrowserDefaultDark = () => window.matchMedia('(prefers-color-scheme: dark)').matches;
 
@@ -55,10 +54,7 @@ const Header = () => {
       <header className="absolute top-0 left-0 right-0 flex flex-row justify-between p-4">
         <Link className="flex max-w-[300px] items-center" href="/">
           <div className="flex h-12 w-12 items-center justify-center overflow-hidden rounded-full bg-white dark:bg-gray-800">
-            <Rive
-              src="/rive-animations/react.riv"
-              aria-label="Rive logo by Dante from Rive community - https://creativecommons.org/licenses/by/4.0/"
-            />
+            <LazyReactLogo />
           </div>
 
           <h1 className="ml-2 text-2xl font-bold text-gray-900 dark:text-white">ReactUY</h1>
@@ -81,27 +77,11 @@ const Header = () => {
           )}
 
           <Button variant="none" onClick={() => setDark((prevValue) => !prevValue)}>
+            <span className="sr-only">Menu</span>
             <HiOutlineSun className="h-6 w-6" />
           </Button>
         </div>
       </header>
-
-      <motion.div
-        className="fixed z-20 h-screen w-screen bg-gradient-to-b from-blue-400 to-blue-700"
-        role="button"
-        onClick={() => setNavMenuOpen(false)}
-        animate={navMenuOpen ? 'open' : 'closed'}
-        variants={{
-          open: {
-            opacity: 0.5,
-            pointerEvents: 'all',
-          },
-          closed: {
-            opacity: 0,
-            pointerEvents: 'none',
-          },
-        }}
-      />
     </>
   );
 };

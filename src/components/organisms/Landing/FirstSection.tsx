@@ -40,7 +40,7 @@ const Feature = ({ title, description, icon, mobile = false }: FeatureProps) => 
 
 const FirstSection = () => (
   <SectionWrapper left>
-    <h1 className="text-6xl font-bold text-gray-800 dark:text-gray-100">¿Qué es ReactJS?</h1>
+    <h2 className="text-6xl font-bold text-gray-800 dark:text-gray-100">¿Qué es ReactJS?</h2>
     <p className="mt-6 text-gray-600 dark:text-gray-400 md:px-24 xl:px-96">
       React JS es una biblioteca de JavaScript para construir interfaces de usuario interactivas y
       dinámicas para aplicaciones web. Fue desarrollado por Facebook y se ha convertido en una de

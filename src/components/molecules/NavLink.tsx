@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import Link from 'next/link';
 
 type Props = {
@@ -9,7 +9,7 @@ type Props = {
 };
 
 const NavLink = ({ href, children, isOpen, delay }: Props) => (
-  <motion.li
+  <m.li
     animate={isOpen ? 'open' : 'closed'}
     variants={{
       open: {
@@ -28,7 +28,7 @@ const NavLink = ({ href, children, isOpen, delay }: Props) => (
       {children}
       <span className="block h-0.5 max-w-0 bg-white transition-all duration-300 group-hover:max-w-full" />
     </Link>
-  </motion.li>
+  </m.li>
 );
 
 export default NavLink;

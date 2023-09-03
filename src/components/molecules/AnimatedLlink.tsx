@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import Link from 'next/link';
 
 import clsx from 'clsx';
@@ -14,7 +14,7 @@ const AnimatedLink = ({ href, label, delay }: Props) => {
   const [hover, setHover] = useState(false);
 
   return (
-    <motion.li
+    <m.li
       initial={{ opacity: 0, scale: 0.5 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{
@@ -33,7 +33,7 @@ const AnimatedLink = ({ href, label, delay }: Props) => {
         {label}
         <span className="block h-0.5 max-w-0 bg-white transition-all duration-300 group-hover:max-w-full" />
       </Link>
-    </motion.li>
+    </m.li>
   );
 };
 

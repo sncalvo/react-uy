@@ -1,5 +1,5 @@
 import Highlight from 'react-highlight';
-import Rive from '@rive-app/react-canvas';
+import LazyReactLogo from '../molecules/LazyReactLogo';
 
 const Presentation = () => (
   <div className="relative grid min-h-screen grid-cols-1 flex-col items-center justify-center bg-gradient-to-b from-blue-400 to-blue-700 md:grid-cols-2 md:p-12">
@@ -7,10 +7,7 @@ const Presentation = () => (
       <div className="-mx-5 flex items-center justify-between py-2">
         <h1 className="mb-5 text-3xl font-bold text-white md:text-5xl">React UY</h1>
         <div className="flex h-28 w-28 items-center justify-center overflow-hidden rounded-full bg-gray-800 backdrop-blur-lg md:hidden">
-          <Rive
-            src="/rive-animations/react.riv"
-            aria-label="Rive logo by Dante from Rive community - https://creativecommons.org/licenses/by/4.0/"
-          />
+          <LazyReactLogo />
         </div>
       </div>
 
@@ -31,10 +28,7 @@ const Presentation = () => (
     </div>
     <div className="col-span-1 hidden h-full items-center justify-center overflow-hidden md:flex">
       <div className="aspect-square w-full max-w-lg rounded-full bg-gray-800 shadow duration-[10000ms] motion-safe:animate-spin-slow">
-        <Rive
-          src="/rive-animations/react.riv"
-          aria-label="Rive logo by Dante from Rive community - https://creativecommons.org/licenses/by/4.0/"
-        />
+        <LazyReactLogo />
       </div>
     </div>
   </div>

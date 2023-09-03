@@ -9,6 +9,7 @@ import '@/styles/globals.css';
 import { Analytics } from '@vercel/analytics/react';
 
 import ApplicationLayout from '@/components/layouts/ApplicationLayout';
+import { LazyMotion, domAnimation } from "framer-motion"
 
 const MyApp: AppType<{ session: Session | null }> = ({
   Component,
@@ -17,9 +18,11 @@ const MyApp: AppType<{ session: Session | null }> = ({
   return (
     <>
       <SessionProvider session={session}>
-        <ApplicationLayout>
-          <Component {...pageProps} />
-        </ApplicationLayout>
+        <LazyMotion features={domAnimation}>
+          <ApplicationLayout>
+            <Component {...pageProps} />
+          </ApplicationLayout>
+        </LazyMotion>
       </SessionProvider>
       <Analytics />
     </>

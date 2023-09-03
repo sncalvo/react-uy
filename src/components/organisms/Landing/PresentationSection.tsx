@@ -1,5 +1,5 @@
 import Button from '@/components/atoms/Button';
-import Rive from '@rive-app/react-canvas';
+import LazyReactLogo from '@/components/molecules/LazyReactLogo';
 
 import { signIn } from 'next-auth/react';
 
@@ -87,10 +87,7 @@ const PresentationSection = () => {
 
       <div className="hidden md:block md:w-1/2 lg:pl-24">
         <div className="aspect-square w-full max-w-lg rounded-full bg-white shadow duration-[10000ms] motion-safe:animate-spin-slow dark:bg-gray-800">
-          <Rive
-            src="/rive-animations/react.riv"
-            aria-label="Rive logo by Dante from Rive community - https://creativecommons.org/licenses/by/4.0/"
-          />
+          <LazyReactLogo />
         </div>
       </div>
     </div>
