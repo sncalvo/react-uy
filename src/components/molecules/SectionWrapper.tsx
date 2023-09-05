@@ -4,7 +4,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 type Props = {
   right?: boolean;
   left?: boolean;
-  background?: 'default' | 'alt';
+  background?: 'default' | 'alt' | 'none';
   children: React.ReactNode;
 };
 
@@ -46,17 +46,17 @@ const SectionWrapper = ({
   return (
     <section
       className={clsx(
-        'min-h-screen text-center opacity-0 transition-all delay-100 duration-[2000ms]',
+        'text-center opacity-0 transition-all delay-100 duration-[1000ms]',
         {
-          'bg-sky-100 dark:bg-gray-900': background === 'default',
-          'bg-sky-200 dark:bg-sky-900': background === 'alt',
+          'bg-gray-900': background === 'default',
+          'bg-sky-900': background === 'alt',
         },
       )}
       ref={handleRect}
     >
       <div
         className={clsx(
-          'container mx-auto flex min-h-screen flex-col items-center justify-center py-5 transition-all duration-1000',
+          'container mx-auto flex flex-col items-center justify-center py-5 transition-all duration-500',
           {
             'translate-x-full': right,
             '-translate-x-full': left,

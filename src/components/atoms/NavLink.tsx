@@ -11,11 +11,11 @@ const NavLink = ({ href, children }: Props) => {
     <Link
       href={href}
       className={clsx(
-        'group/link text-2xl text-gray-700 transition-all hover:scale-105 dark:text-gray-300 lg:text-xl',
+        'group/link text-2xl transition-all hover:scale-105 text-gray-300 lg:text-xl',
       )}
     >
       {children}
-      <span className="block h-0.5 max-w-0 bg-gray-900 transition-all duration-300 group-hover/link:max-w-full dark:bg-white" />
+      <span className="block h-0.5 max-w-0 transition-all duration-300 group-hover/link:max-w-full bg-white" />
     </Link>
   );
 };
